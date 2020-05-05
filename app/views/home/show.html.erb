@@ -1,4 +1,9 @@
 <h2>Welcome to Voting!</h2>
 <h3>How to use</h3>
 TODO
-<p>If you want to create votes, login <%= link_to 'here', signup_url %></p>
+<hr/>
+<% if current_user %>
+  Let's create an event from <%= link_to 'here', new_event_url %>
+<% else %>
+  In order to create an event, you need to sign in from <%= link_to 'here', signup_url %>
+<% end %>
