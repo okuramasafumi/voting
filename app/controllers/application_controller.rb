@@ -3,4 +3,8 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find_by(id: cookies.signed[:user_id])
   end
   helper_method :current_user
+
+  def authenticate!
+    current_user || redirect_to(root_url)
+  end
 end
