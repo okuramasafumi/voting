@@ -10,6 +10,13 @@
   </head>
 
   <body>
+    <header>
+      <% if current_user %>
+        You're logging in as <%= current_user.name %>
+      <% else %>
+        Login from <%= link_to 'here', signup_url %>
+      <% end %>
+    </header>
     <%= yield %>
   </body>
 </html>
